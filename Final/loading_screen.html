@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="loading.css" />
+    <link rel="icon" href="images/blur.gif" type="image/gif"
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <title>loading...</title>
+    <main>
+      <div id="preloader" style="background-color: black;">Loading...
+          <img src="https://media1.tenor.com/m/pA3iQm28pU4AAAAC/481.gif"/>
+      </div>
+      <audio preload="auto" src="Because of You.mp3" loop="true" autobuffer pre>
+        Unsupported in Firefox
+      </audio>
+      <div id="bar">
+        <!-- <h1 id="start-button">start</h1> -->
+        <span id="current-time"></span>
+      </div>
+      <div id="user">
+        <div id="icon">
+          <img src="images/desktop/icon.png"/>
+        </div>
+          <div id="enter">
+            <form id="login-form">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required /><br /><br />
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required /><br /><br />
+             <button type="button" id="submit-button">Enter</button>
+           </form>
+          </div>
+      </div>
+      </div>
+    </main>
+           <!-- <link rel="preload" href="loading.js" as="script" /> -->
+    <script src="loading.js"></script>
+  </body>
+</html>

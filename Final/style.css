@@ -1,0 +1,839 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Workbench:SCAN@-53&display=swap');
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    background-size: contain; /* Adjust for smaller screens maybe? google moarrr*/
+  }
+  #lotus {
+    top: 60%; /* Adjust for smaller screens */
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .reflect {
+    top: 60%; /* Adjust for smaller screens */
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* animation for clockwise rotation */
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg); /* Positive value for clockwise rotation */
+  }
+}
+
+/* animation for counterclockwise rotation */
+@keyframes rotateCounterclockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg); /* Negative value for counterclockwise rotation */
+  }
+}
+
+/* Apply clockwise rotation to smallest.png and largest.png */
+.smallest,
+.largest {
+  animation: rotateClockwise 5s linear infinite; 
+}
+
+/* Apply counterclockwise rotation to middle.png */
+.middle {
+  animation: rotateCounterclockwise 5s linear infinite; 
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main {
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(images/desktop/wallpaperv2.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover; /* Ensures the image scales with the window size????idkkkk!!!!! */
+  font-family: "Jersey 10"; 
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Jersey 10";
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0px;
+  text-align: center;
+  background-color: rgb(151, 208, 230);
+  display: flex;
+  flex-direction: row;
+  align-content: baseline;
+  color: white;
+  padding-right: 50px;
+  width: 100px;
+  align-items: center;
+  align-content: center; 
+  padding-bottom: 0px;
+  margin-block-start: 0px;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d19797;
+    text-align: center;
+    margin: 0px 0px 0px 0;
+}
+
+#desktop {
+  /* background-color: #f0f0f0; */
+  font-family: Arial, sans-serif;
+  color: white;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  font-family: "Jersey 10";
+}
+
+#bar{
+  display: flex;
+  flex-direction: row;
+  align-content: baseline;
+  color: black;
+  justify-content: center;
+  background-color: rgb(70, 183, 228);
+  font-size: 24px;
+  background-image: url('images/desktop/bar.png');
+  align-items: center;
+  font-style:oblique;
+  flex-wrap: nowrap;
+  
+
+}
+
+#bar img{
+  width: 2000px;
+  align-items: center;
+}
+
+.doorname {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px; 
+}
+
+/* .doors {
+  margin-top: 0px;
+  padding: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: auto;
+  height: auto;
+  align-items: center;
+    justify-content: space-around;
+} */
+
+.door1 {
+   position: fixed; 
+  top: 35%; /* Center vertically */
+  left: 20%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the element exactly */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  flex-wrap: wrap;
+  width: 150px; /* Adjust width */
+  height: 150px; /* Adjust height */
+}
+
+.door1 img{
+  width: 150px;
+  height: 250px;
+}
+.door1 img:hover{
+  width: 150px;
+  height: 250px;
+  background: radial-gradient(circle, rgb(248, 248, 209) 0%, transparent 75%);
+}
+
+.reflect img:hover{
+  
+  background: radial-gradient(circle, rgb(248, 248, 209) 0%, transparent 75%);
+}
+
+.door1 a{
+  color: white;
+}
+
+.reflect {
+  position: fixed; 
+  top: 45%; /* Center vertically */
+  left: 80%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the element exactly */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  flex-wrap: wrap;
+  width: 150px; /* Adjust width */
+  height: 150px; /* Adjust height */
+  
+}
+
+.reflect img{
+  width: 150px; /* Adjust width */
+  height: 150px; /* Adjust height */
+}
+
+.reflect a{
+  color: white;
+}
+
+.escape {
+   position: fixed;
+  top: 85%; /* Center vertically */
+  left: 85%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the element exactly */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  color: green;
+  flex-wrap: wrap;
+  width: 150px; /* Adjust width */
+  height: 150px; /* Adjust height */
+  
+}
+
+.escape img{
+  width: 150px;
+  height: 150px;
+}
+
+.escape a{
+  color: white;
+}
+
+#start-menu {
+  position: absolute;
+  top: 35px;
+  left: 40px;
+  width: 200px;
+  background-color: black;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: none;
+}
+
+#start-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#start-menu li {
+  margin: 5px 0;
+}
+
+#start-menu a {
+  text-decoration: none;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+/* spacing for the start button not sure if this works lol*/
+#start-button {
+  margin: 0px 0; /* Reduce the top and bottom margin */
+  padding: 0; /* Remove unnecessary padding */
+  align-items: left;
+  /* background-image: url('images/desktop/button.png'); */
+  color: rgb(84, 84, 84);
+  height: 40px;
+  width: 80px;
+  background-color: transparent;
+  position:absolute;
+  left:0px;
+  background:radial-gradient(lime, black);
+  padding-left: 40px;
+  
+}
+
+#musicplayer {
+  background-color: transparent;
+   /* Default color when music is paused */
+  cursor: pointer;
+  transition: background-color 0.3s ease, background 0.3s ease;
+  width: 200px;
+  height: 250px;
+  /* border: 2px solid #333; */
+  /* margin: 40px; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  margin-bottom: 20%;
+  left: 0;
+  top: 400px;
+}
+
+#musicplayer img{
+  width: 200px;
+  height: 250px;
+}
+
+#musicplayer img:hover{
+ color:aqua;
+ /* background: greenyellow, 0 0 0 0; */
+ background: radial-gradient(circle, rgb(103, 236, 243) 0%, transparent 70%);
+}
+
+#musicplayer.playing img {
+  background: radial-gradient(circle, rgb(103, 236, 243) 0%, transparent 70%);
+}
+
+#musicplayer.paused img {
+  background: radial-gradient(circle, rgb(243, 103, 103) 0%, transparent 70%);
+}
+
+#musicplayer:hover:after {
+    position: absolute;
+    content: attr(title);
+    display: inline-block;
+    left: 83px;
+    top: 100px;
+    padding: 5px;
+    background-color: rgb(214, 254, 208);
+    color: rgb(87, 148, 86);
+    width: 47px;
+    height: 43px;
+    border-radius: 4px;
+    border: 1px, solid, black;
+    font-size: 12px;
+    transform: rotate(2.3deg);
+    transform: skew(-4deg, -4deg);
+    
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+  color: white;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px; 
+  text-align: center;
+  /* box-shadow: 18px -20px 8px 1px rgb(21 171 10 / 20%); */
+  position: relative;
+  height: 600px;
+  background-color: transparent;
+}
+
+.modal-contentreflect {
+  /* background-color: #c2aedc; */
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%; 
+  max-width: 600px;
+  text-align: center;
+  /* box-shadow: 18px -20px 8px 1px rgb(21 171 10 / 20%); */
+  position: relative;
+  height: 600px;
+  background-color: transparent;
+  color: #ffffff;
+  
+}
+
+#memes-link{
+  color: white;
+}
+
+.modalreflect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+
+.modal-contentlotus {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%; 
+  max-width: 700px; 
+  text-align: center;
+  /* box-shadow: 18px -20px 8px 1px rgb(21 171 10 / 20%); */
+  position: relative;
+  height: 600px;
+  color: white;
+}
+
+.modallotus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease;
+}
+
+.modallotus.hidden {
+  opacity: 0; /* Fully transparent */
+  pointer-events: none; /* Prevent interaction when hidden */
+  transition: opacity 0.5s ease;
+}
+
+/* Visible state for the modal */
+.modallotus {
+  opacity: 1; /* Fully visible */
+  pointer-events: auto; /* Allow interaction when visible */
+}
+
+.close-button {
+  position: absolute;
+  top: 0px;
+  /* right: 10px; */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Overlay styles */
+.overlay {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.overlay img {
+  max-height: 85%;
+  max-width: 95%;
+  height: auto;
+  display: block;
+  z-index: 2;
+  position: fixed;
+  pointer-events: none;
+  top: 25%;
+}
+
+/* Slideshow styles */
+.Nature {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: fixed;
+}
+
+.Nature img {
+  max-width: 200px;
+  max-height: 200px;
+  height: auto;
+  display: block;
+  z-index: 1;
+  padding-top: 790px;
+  padding-left: 718px;
+rotate: 5deg;
+position: absolute;
+pointer-events: none;
+}
+
+.modal-content {
+    width: 90%; /* Adjust for smaller screens */
+  }
+
+#slideshow{
+  width: 800px;
+  height: 700px;
+}
+#slideshow3{
+  width: 800px;
+  height: 700px;
+}
+#slideshow2{
+  height: 500px;
+  width: inherit;
+  align-items: center;
+   background-color:transparent;
+}
+/* Slideshow styles */
+.reflect {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.reflect img {
+  max-width: 100%;
+  max-height: 400px;
+  height: auto;
+  display: block;
+  z-index: 1;
+  background-color: transparent;
+}
+
+/* Overlay styles */
+.overlay2 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.overlay2 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  z-index: 2;
+  position: fixed;
+  pointer-events: none;
+  scale: 70%;
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: baseline;
+  padding-top: 300px;
+  border: black 2px solid;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+}
+
+/* Slideshow styles */
+.nature3 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.nature3 img {
+  max-width: 100%;
+  max-height: 400px;
+  height: auto;
+  display: block;
+  z-index: 1;
+}
+
+#lotus {
+  position: fixed; 
+  top: 75%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the element exactly */
+  display: flex;
+  flex-direction: column;
+  z-index: 2; 
+  color: rgb(182, 169, 218);
+}
+
+#lotus a{
+  color: rgb(182, 169, 218);
+}
+
+#lotus img {
+  width: 80px;
+  height: 80px;
+  /* background: radial-gradient(circle, rgb(243, 241, 103) 0%, transparent 85%); */
+}
+#lotus img:hover {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgb(243, 241, 103) 0%, transparent 85%);
+}
+
+
+/* Image stack styles */
+.image-stack {
+  position: relative; /*positioning context for child elements */
+  width: 100%; 
+  height: auto; 
+  pointer-events: none;
+}
+
+.image-stack img {
+  position: absolute; /* Stack images on top of each other */
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: auto;
+}
+
+.image-stack .smallest {
+  z-index: 1; /* Ensure the smallest image is on top */
+}
+
+.image-stack .largest {
+  z-index: 0; /* Ensure the largest image is below */
+}
+
+.slider-container {
+  margin-top: 20px;
+  text-align: center;
+  z-index: 27000;
+}
+
+#rotationSpeed {
+  width: 80%;
+  margin: 10px auto;
+}
+#rotationSpeed1 {
+  width: 80%;
+  margin: 10px auto;
+}
+ .slider-container1 {
+  margin-top: 20px;
+  text-align: center;
+  z-index: 1000;
+}
+
+span#current-time, #current-date{
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  padding-left: 400px;
+}
+.emoji-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+.emoji {
+    position: absolute; 
+    font-size: 1em; 
+    top: -2em; 
+    animation-duration: 5s;  /* Adjust animation duration */
+    animation-timing-function: linear; /* Constant falling speed */
+    pointer-events: none; /* Allows interaction with underlying elements */
+    z-index: 100;
+    width: 10px;
+    height: 5px;
+}
+
+/* Generate some random animation delays */
+.emoji:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+.emoji:nth-child(even) {
+  animation-delay: 1.7s;
+}
+
+/* Create a falling animation */
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+.reflect-container {
+  position: relative; /*positioning context for child elements */
+  width: 400px; /* Set the width of the container */
+  height: 300px; /* Set the height of the container */
+  margin: 20px auto; /* Center the container horizontally */
+}
+
+.reflect-container textarea{
+  font-family: "Jersey 10";
+  font-size: 22px;
+}
+
+.reflect-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  z-index: 1; /* Place the image below the text box */
+}
+
+.reflect-textbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%; 
+  height: 160%; 
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: rgb(226, 223, 223); /* Text color */
+  border: none; 
+  z-index: 2; /* Place the text box above the image */
+  padding: 10px; /* Add some padding inside the text box */
+  font-size: 22px; 
+  resize: none; /* Prevent resizing of the text box */
+  outline: none; /* Remove the focus outline */
+  overflow: auto;
+}
+.scrolling-text {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Start off-screen to the right */
+  white-space: wrap; 
+  font-size: 22px; /* Match the font size of the text box */
+  color: rgb(226, 223, 223); /* Text color */
+  z-index: 3; /* Ensure it appears above the image and text box */
+  animation: scrollText 15s linear infinite; /* Adjust duration as needed */
+  width: 100%;
+  height: inherit;
+   pointer-events: none;
+   text-align: left;
+   font-family: "Workbench";
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0); /* Start at the right edge */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left edge */
+  }
+}
+#map { 
+  height: inherit;
+      overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    cursor: grab;
+    background: transparent;
+    outline-offset: 1px;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    max-width: 100%;
+    max-height: 100%;
+    touch-action: none;
+    width: 600px;
+    height: 550px;
+    position: relative;
+}
+
+/* Overlay styles */
+.overlay2 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  position: absolute;
+}
+
+#overlaymap img{
+    max-width: 100%;
+    max-height: 100%;
+  height: auto;
+  display: block;
+  z-index: 999;
+  position: fixed;
+  pointer-events: none;
+  scale: 70%;
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: baseline;
+  border: black 2px solid;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  position: absolute;
+
+}
+/* #map { width: 800px; height: 600px; } */
+body { font: 16px/1.4 "Helvetica Neue", Arial, sans-serif; }
+ .ghbtns { position: relative; top: 4px; margin-left: 5px; }
+  a { color: #0077ff; }
