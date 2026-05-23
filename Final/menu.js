@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close the menu if clicked outside?
   document.addEventListener("click", (event) => {
-    if (!startButton.contains(event.target) && !startMenu.contains(event.target)) {
+    if (
+      !startButton.contains(event.target) &&
+      !startMenu.contains(event.target)
+    ) {
       startMenu.classList.add("hidden");
       startMenu.style.display = "none";
     }
@@ -83,13 +86,17 @@ document.addEventListener("DOMContentLoaded", () => {
   escapeLink.addEventListener("click", (event) => {
     event.preventDefault();
     openModal(escapeModal);
-    setTimeout(function(){ map.invalidateSize()}, 500); // Time out and refresh wheh Modal Opens
+    setTimeout(function () {
+      map.invalidateSize();
+    }, 500); // Time out and refresh wheh Modal Opens
   });
 
   meLink.addEventListener("click", (event) => {
     event.preventDefault();
     openModal(escapeModal);
-    setTimeout(function(){ map.invalidateSize()}, 500); // Time out and refresh wheh Modal Opens
+    setTimeout(function () {
+      map.invalidateSize();
+    }, 500); // Time out and refresh wheh Modal Opens
   });
 
   closeescape.addEventListener("click", () => {
@@ -171,70 +178,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Music player from previous project
 function play() {
-    var audio = new Audio('Because of You.mp3');
-    audio.play();
-    audio.loop = true;
-    audio.volume = 0.2;
+  var audio = new Audio("Because of You.mp3");
+  audio.play();
+  audio.loop = true;
+  audio.volume = 0.2;
+}
+
+function setCookie(c_name, value, exdays) {
+  var exdate = new Date();
+  exdate.setDate(exdate.getDate() + exdays);
+  var c_value =
+    escape(value) + (exdays == null ? "" : "; expires=" + exdate.toUTCString());
+  +"; path=/";
+  document.cookie = c_name + "=" + c_value;
+}
+
+function getCookie(c_name) {
+  var i,
+    x,
+    y,
+    ARRcookies = document.cookie.split(";");
+  for (i = 0; i < ARRcookies.length; i++) {
+    x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+    y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+    x = x.replace(/^\s+|\s+$/g, "");
+    if (x == c_name) {
+      return unescape(y);
+    }
   }
-  
-  function setCookie(c_name,value,exdays)
-  {
-      var exdate=new Date();
-      exdate.setDate(exdate.getDate() + exdays);
-      var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()); + "; path=/";
-      document.cookie=c_name + "=" + c_value;
+}
+
+var song = document.getElementsByTagName("audio")[0];
+var played = false;
+var tillPlayed = getCookie("timePlayed");
+function update() {
+  if (!played) {
+    if (tillPlayed) {
+      song.currentTime = tillPlayed;
+      song.play();
+      played = true;
+    } else {
+      song.play();
+      played = true;
+    }
+  } else {
+    setCookie("timePlayed", song.currentTime);
   }
-  
-  function getCookie(c_name)
-  {
-      var i,x,y,ARRcookies=document.cookie.split(";");
-      for (i=0;i<ARRcookies.length;i++)
-      {
-        x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-        y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-        x=x.replace(/^\s+|\s+$/g,"");
-        if (x==c_name)
-          {
-          return unescape(y);
-          }
-        }
-  }
-  
-  var song = document.getElementsByTagName('audio')[0];
-  var played = false;
-  var tillPlayed = getCookie('timePlayed');
-  function update()
-  {
-      if(!played){
-          if(tillPlayed){
-          song.currentTime = tillPlayed;
-          song.play();
-          played = true;
-          }
-          else {
-                  song.play();
-                  played = true;
-          }
-      }
-  
-      else {
-      setCookie('timePlayed', song.currentTime);
-      }
-  }
-  
-  setInterval(update,10);
+}
+
+setInterval(update, 10);
 
 function updateDateTime() {
   const now = new Date();
   const dateString = now.toLocaleDateString();
   const timeString = now.toLocaleTimeString();
-  document.getElementById('current-time').textContent = `${dateString} ${timeString}`;
+  document.getElementById(
+    "current-time"
+  ).textContent = `${dateString} ${timeString}`;
 }
 
 setInterval(updateDateTime, 1000); // Update every second
 updateDateTime(); // Initial call to display immediately
 
-  //loading screeeen
+//loading screeeen
 //   var loading_screen = document.querySelector(".loading");
 
 // window.addEventListener('load', function() {
@@ -244,7 +250,7 @@ updateDateTime(); // Initial call to display immediately
 const now = new Date();
 
 // Creating a new date object with a specific date and time
-const specificDate = new Date('2024-07-20T10:30:00');
+const specificDate = new Date("2024-07-20T10:30:00");
 
 // Creating a new date object with year, month (0-indexed), day, hours, minutes, seconds, milliseconds
 const anotherDate = new Date(2025, 4, 11, 15, 45, 30, 500);
@@ -267,9 +273,6 @@ specificDate.setMinutes(0);
 specificDate.setSeconds(0);
 specificDate.setMilliseconds(0);
 
-
-
-
 // Formatting dates
 const isoString = now.toISOString();
 const dateString = now.toDateString();
@@ -284,7 +287,7 @@ const timestamp = now.getTime();
 const dateFromTimestamp = new Date(timestamp);
 
 // Parsing date from string
-const parsedDate = new Date(Date.parse('2024-07-20T10:30:00'));
+const parsedDate = new Date(Date.parse("2024-07-20T10:30:00"));
 
 // Date arithmetic
 const futureDate = new Date(now);
@@ -295,76 +298,77 @@ pastDate.setDate(now.getDate() - 3); // Subtract 3 days
 
 //falling pics/emojis
 
-const emojiContainer = document.querySelector('.emoji-container');
-const emojis = ['🍃', '🍃', '🪻', '🍃', '🪻']; 
+const emojiContainer = document.querySelector(".emoji-container");
+const emojis = ["🍃", "🍃", "🪻", "🍃", "🪻"];
 
 function createFallingEmoji() {
-    const emoji = document.createElement('span');
-    emoji.classList.add('emoji');
+  const emoji = document.createElement("span");
+  emoji.classList.add("emoji");
 
-    // Create an img element for the picture
-    const img = document.createElement('img');
-    img.src = 'images/desktop/flower.png'; 
-    img.alt = 'Falling Image';
-    img.style.width = '150px'; // Adjust the size of the image
-    img.style.height = '150px';
+  // Create an img element for the picture
+  const img = document.createElement("img");
+  img.src = "images/desktop/flower.png";
+  img.alt = "Falling Image";
+  img.style.width = "150px"; // Adjust the size of the image
+  img.style.height = "150px";
 
-    // Append the image to the emoji container
-    emoji.appendChild(img);
+  // Append the image to the emoji container
+  emoji.appendChild(img);
 
-    // Random horizontal starting position
-    emoji.style.left = `${Math.random() * 100}%`;
-    emoji.style.top = `${-5}%`;
+  // Random horizontal starting position
+  emoji.style.left = `${Math.random() * 100}%`;
+  emoji.style.top = `${-5}%`;
 
-    // Apply falling animation
-    emoji.style.animationName = "fall";
+  // Apply falling animation
+  emoji.style.animationName = "fall";
 
-    // Random duration for a varied effect
-    emoji.style.animationDuration = `${Math.random() * 4 + 3}s`; // Duration between 3-7s
+  // Random duration for a varied effect
+  emoji.style.animationDuration = `${Math.random() * 4 + 3}s`; // Duration between 3-7s
 
-    // Add the emoji to the container
-    emojiContainer.appendChild(emoji);
+  // Add the emoji to the container
+  emojiContainer.appendChild(emoji);
 
-    // Remove the emoji after it finishes falling
-    emoji.addEventListener('animationend', () => {
-        emoji.remove();
-    });
+  // Remove the emoji after it finishes falling
+  emoji.addEventListener("animationend", () => {
+    emoji.remove();
+  });
 }
 
 // Create a new emoji every so often
 setInterval(createFallingEmoji, 1000);
 
-
-document.querySelector('.submit-button').addEventListener('click', () => {
-  const textBox = document.querySelector('.reflect-textbox');
-  const scrollingTextContainer = document.querySelector('.scrolling-text-container'); // Select the container for multiple texts
+document.querySelector(".submit-button").addEventListener("click", () => {
+  const textBox = document.querySelector(".reflect-textbox");
+  const scrollingTextContainer = document.querySelector(
+    ".scrolling-text-container"
+  ); // Select the container for multiple texts
 
   // Get the text from the textarea
   const text = textBox.value.trim();
 
   // Clear the textarea
-  textBox.value = '';
+  textBox.value = "";
 
   if (!text) return;
 
   // Create a new scrolling text element
-  const newScrollingText = document.createElement('div');
-  newScrollingText.classList.add('scrolling-text');
+  const newScrollingText = document.createElement("div");
+  newScrollingText.classList.add("scrolling-text");
   newScrollingText.textContent = text;
 
-    // Dynamically set the animation duration
+  // Dynamically set the animation duration
   const duration = Math.max(25, text.length / 3); // Longer text scrolls slower
   newScrollingText.style.animationDuration = `${duration}s`;
 
-  // Set a random position for the text 
-  newScrollingText.style.left = '80%'; 
+  // Set a random position for the text
+  newScrollingText.style.left = "80%";
   newScrollingText.style.top = `${Math.random() * 80}%`;
 
   // Append the new text to the scrolling container
   scrollingTextContainer.appendChild(newScrollingText);
 
   // Remove the text after the animation ends
-  newScrollingText.addEventListener('animationend', () => {
+  newScrollingText.addEventListener("animationend", () => {
     newScrollingText.remove();
   });
 });
@@ -414,25 +418,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Setting up Map
 
-var map = L.map('map', {
-    minZoom: 10,
-    maxZoom: 13,
+var map = L.map("map", {
+  minZoom: 10,
+  maxZoom: 13,
 }).setView([40.74470993686422, -73.9580105570574], 10);
 
-var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+var tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
-addressPoints = addressPoints.map(function (p) { return [p[0], p[1]]; });
+addressPoints = addressPoints.map(function (p) {
+  return [p[0], p[1]];
+});
 
 var heat = L.heatLayer(addressPoints, {
   radius: 40, // Increase or decrease for more/less spread
-  blur: 40,   // Lower blur for sharper points
-  max: 2.0,   // Lower max for higher contrast 
-  gradient: {0.2: 'blue',0.4: 'cyan', 0.5: "chartreuse", 0.6: 'yellow', .8: 'red', 1.0: 'white'},
+  blur: 40, // Lower blur for sharper points
+  max: 2.0, // Lower max for higher contrast
+  gradient: {
+    0.2: "blue",
+    0.4: "cyan",
+    0.5: "chartreuse",
+    0.6: "yellow",
+    0.8: "red",
+    1.0: "white",
+  },
   maxZoom: 1.0,
-  maxOpacity: .8,
+  maxOpacity: 0.8,
   minOpacity: 0.4,
 }).addTo(map);
-
-
